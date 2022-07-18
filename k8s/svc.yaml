@@ -1,0 +1,41 @@
+# mysql - svc
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-server
+spec:
+  selector:
+    app: mysql-server
+  ports:
+  - port: 3306
+    targetPort: 3306
+  type: ClusterIP
+---
+# phpmyadmin - svc
+apiVersion: v1
+kind: Service
+metadata:
+  name: phpmyadmin
+spec:
+  selector:
+    app: phpmyadmin
+  ports:
+  - port: 80
+    targetPort: 8080
+    nodePort: 30056
+  type: NodePort
+---
+# laravel-vue - svc
+apiVersion: v1
+kind: Service
+metadata:
+  name: laravel-vue
+spec:
+  selector:
+    app: laravel-vue
+  ports:
+  - port: 8000
+    targetPort: 8000
+    nodePort: 30057
+  type: NodePort
+  
