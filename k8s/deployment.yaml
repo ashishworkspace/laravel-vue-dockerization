@@ -49,9 +49,10 @@ spec:
             memory: "128Mi"
             cpu: "500m"
         ports:
-        - containerPort: 8080
+        - containerPort: 80
         env:
-        - name: PMA_ARBITRARY=1
+        - name: PMA_ARBITRARY
+          value: "1"
 ---
 # laravel-vue application
 apiVersion: apps/v1
@@ -88,4 +89,4 @@ spec:
         - name: DB_USERNAME
           value: "root"
         - name: DB_PASSWORD
-          value: password
+          value: "password"
